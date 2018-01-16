@@ -1,0 +1,36 @@
+{
+	"name": "electron-express",
+	"version": "1.0.0",
+	"description": "A minimal Electron application that runs a local server with Express",
+	"main": "main.js",
+	"scripts": {
+		"start": "electron .",
+		"electron:windows": "npm run build:prod && npx electron-builder build --windows",
+		"electron:mac": "npm run build:prod && npx electron-builder build --mac",
+		"build:prod": "cross-env NODE_ENV=production"
+	},
+	"repository": "https://github.com/agustinsiles/electron-express",
+	"keywords": [
+		"Electron",
+		"express",
+		"server",
+		"poc",
+		"demo"
+	],
+	"author": "AgustinSiles",
+	"license": "MIT",
+	"devDependencies": {
+		"cross-env": "5.0.5",
+		"electron": "~1.7.8",
+		"electron-builder": "^19.52.1",
+		"electron-winstaller": "^2.2.0",
+		"npx": "9.7.1"
+	},
+	"dependencies": {
+		"body-parser": "^1.15.2",
+		"ejs": "^2.5.7",
+		"express": "^4.14.0",
+		"morgan": "^1.7.0",
+		"process.argv": "^0.1.0"
+	}
+}
