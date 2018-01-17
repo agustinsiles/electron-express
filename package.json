@@ -7,7 +7,8 @@
 		"start": "electron .",
 		"electron:windows": "npm run build:prod && npx electron-builder build --windows",
 		"electron:mac": "npm run build:prod && npx electron-builder build --mac",
-		"build:prod": "cross-env NODE_ENV=production"
+		"build:prod": "cross-env NODE_ENV=production",
+		"postinstall": "electron-builder install-app-deps"
 	},
 	"repository": "https://github.com/agustinsiles/electron-express",
 	"keywords": [
@@ -17,12 +18,22 @@
 		"poc",
 		"demo"
 	],
+	"build": {
+		"appId": "com.jamzi.quickstart",
+		"win": {
+			"target": "nsis"
+		},
+		"extraResources": [
+			"db/sample.db", "express/data/husky.db"
+		]
+	},
 	"author": "AgustinSiles",
 	"license": "MIT",
 	"devDependencies": {
 		"cross-env": "5.0.5",
 		"electron": "~1.7.8",
 		"electron-builder": "^19.52.1",
+		"electron-rebuild": "^1.7.3",
 		"electron-winstaller": "^2.2.0",
 		"npx": "9.7.1"
 	},
@@ -31,6 +42,7 @@
 		"ejs": "^2.5.7",
 		"express": "^4.14.0",
 		"morgan": "^1.7.0",
-		"process.argv": "^0.1.0"
+		"process.argv": "^0.1.0",
+		"sqlite3": "^3.1.13"
 	}
 }
